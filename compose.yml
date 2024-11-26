@@ -1,0 +1,6 @@
+services:
+  uptime-kuma-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: skalahonza/uptime-kuma-cli:latest
