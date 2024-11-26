@@ -1,22 +1,23 @@
-# Use an official Rust image as the base
-FROM rust:latest
+# Use an official Python runtime as the base image
+FROM python:3.10-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install dependencies required for building Rust projects
-RUN apt-get update && apt-get install -y \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+# Copy the application code into the container
+COPY app.py /app/
+COPY requirements.txt /app/
 
-# Install the CLI tool from the specified Git repository
-RUN cargo install --git https://github.com/BigBoot/AutoKuma.git kuma-cli
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Create a symbolic link to make the tool easily executable
-RUN ln -s /usr/local/cargo/bin/kuma-cli /usr/bin/kuma-cli
+# Expose the default port (optional, depends on your needs)
+EXPOSE 8000
 
-# Set the entry point to the CLI tool
-ENTRYPOINT ["kuma"]
+# Set environment variables (override these when running the container)
+ENV KUMA__URL="http://uptime-kuma-instance/api"
+ENV KUMA__USERNAME="your-username"
+ENV KUMA__PASSWORD="your-password"
 
-# Optionally specify a default command
-CMD ["--help"]
+# Command to run the application
+ENTRYPOINT ["python", "app.py"]
