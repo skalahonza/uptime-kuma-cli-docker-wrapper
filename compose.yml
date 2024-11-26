@@ -4,3 +4,5 @@ services:
       context: .
       dockerfile: Dockerfile
     image: skalahonza/uptime-kuma-cli:latest
+    env_file:
+      - .env
