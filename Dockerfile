@@ -16,7 +16,7 @@ RUN cargo install --git https://github.com/BigBoot/AutoKuma.git kuma-cli
 RUN ln -s /usr/local/cargo/bin/kuma-cli /usr/bin/kuma-cli
 
 # Set the entry point to the CLI tool
-ENTRYPOINT ["kuma-cli"]
+ENTRYPOINT ["kuma"]
 
 # Optionally specify a default command
 CMD ["--help"]
