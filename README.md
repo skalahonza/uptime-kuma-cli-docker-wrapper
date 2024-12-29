@@ -34,12 +34,12 @@ This will start the CLI tool inside a Docker container, using the environment va
 
 ### Adding a Monitor
 
-The CLI tool provides a command to add a monitor to your Uptime Kuma instance. The `add_monitor` command takes a single argument, `name`, which specifies the name of the monitor to be added.
+The CLI tool provides a command to add a monitor to your Uptime Kuma instance. The `add-monitor` command takes a single argument, `name`, which specifies the name of the monitor to be added.
 
 To add a monitor, run the following command inside the Docker container:
 
 ```sh
-docker-compose run uptime-kuma-cli add_monitor <name>
+docker-compose run uptime-kuma-cli add-monitor <name>
 ```
 
 Replace `<name>` with the desired name of the monitor. The CLI tool will connect to your Uptime Kuma instance, check if a monitor with the specified name already exists, and add a new monitor if it does not.
