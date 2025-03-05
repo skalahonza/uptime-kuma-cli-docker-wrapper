@@ -45,8 +45,9 @@ def add_monitor(name):
             return
 
     api.add_monitor(
-        type=MonitorType.HTTP,
+        type=MonitorType.KEYWORD,
         url=f"https://{name}/healthz",
+        keyword='Healthy',
         name=name,
         expiryNotification=True,
         maxretries=5,
