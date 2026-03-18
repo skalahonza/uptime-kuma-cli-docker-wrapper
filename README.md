@@ -13,19 +13,19 @@ To configure the CLI tool, you need to set up the following environment variable
 - `KUMA__PASSWORD`: Your Uptime Kuma password.
 
 You can use the provided `.env.template` file as a starting point. Copy the template to a new file named `.env` and fill in the required values.
-
+p
 ### Building and Running the Docker Container
 
 To build and run the Docker container using `compose.yml`, follow these steps:
 
 1. Build the Docker image:
    ```sh
-   docker-compose build
+   docker compose build
    ```
 
 2. Run the Docker container:
    ```sh
-   docker-compose up
+   docker compose up
    ```
 
 This will start the CLI tool inside a Docker container, using the environment variables specified in the `.env` file.
@@ -39,7 +39,7 @@ The CLI tool provides a command to add a monitor to your Uptime Kuma instance. T
 To add a monitor, run the following command inside the Docker container:
 
 ```sh
-docker-compose run uptime-kuma-cli add-monitor <name>
+docker compose run uptime-kuma-cli add-monitor <name>
 ```
 
 Replace `<name>` with the desired name of the monitor. The CLI tool will connect to your Uptime Kuma instance, check if a monitor with the specified name already exists, and add a new monitor if it does not.

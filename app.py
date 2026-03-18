@@ -4,7 +4,6 @@ from uptime_kuma_api import UptimeKumaApi, MonitorType
 
 def create_if_not_exists(api, name):
     monitors = api.get_monitors()
-    print(api.get_monitor(93))
     for monitor in monitors:
         if monitor['name'] == name:
             print(f"Monitor {name} already exists")
@@ -16,6 +15,7 @@ def create_if_not_exists(api, name):
         name=name,
         expiryNotification=True,
         maxretries=5,
+        conditions=[],
     )
     print(f'Added monitor: {name}')
 
@@ -51,6 +51,7 @@ def add_monitor(name):
         name=name,
         expiryNotification=True,
         maxretries=5,
+        conditions=[],
     )
     click.echo(f'Added monitor: {name}')
     click.echo(f"Monitor '{name}' has been added!")
