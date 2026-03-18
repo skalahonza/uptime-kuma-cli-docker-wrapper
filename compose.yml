@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
     image: skalahonza/uptime-kuma-cli:latest
     env_file:
       - .env
